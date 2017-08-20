@@ -9,7 +9,7 @@ const getUser=()=>{
 	if(password==''){
 		alert('Enter password');
 	}
-	if(username==''&&password==''){
+	if(username!=''&&password!=''){
 		console.log('username :'+username);
 		console.log('password :'+password);
 	}
