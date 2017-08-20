@@ -1,6 +1,6 @@
 const db=require('./dbConnection');
 
-const validate=()=>{
+const validate=(data)=>{
 	db.pool.getConnection((error,connection)=>{
 		if(error){
 			console.log(error);
@@ -12,12 +12,16 @@ const validate=()=>{
 				console.log(err);
 			}
 			console.log('Connection responded to ping');
-			var sql="select * from users where username = "+connection.escape("kavinda");
+			var sql="select * from users where username = "+connection.escape(data.username)+" and password = "+connection.escape(data.password);
 			connection.query(sql,(error,results,fields)=>{
 				if (error) {
 					console.log(error);
 				}
-				console.log(results);
+				if(results!=[]){
+					console.log(results);
+				}else{
+					console.log('user not found');
+				}
 
 			});
 		});

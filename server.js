@@ -16,12 +16,13 @@ app.post('/login',urlencodedParser,(req,res)=>{
 	console.log(req.body);
 	data=req.body;
 	console.log(data.username);
+	validateUser.validate(data);
 	
 });
 app.get('/',(req,res)=>{
 	res.sendFile('login.html',{root:path.join(__dirname,'./')})
 	console.log('load');
-	validateUser.validate();
+	
 
 });
 app.get('/signup',(req,res)=>{
