@@ -17,14 +17,16 @@ const validate=(data)=>{
 				if (error) {
 					console.log(error);
 				}
-				if(results!=[]){
-					console.log(results);
+				if(results.length==0){
+					console.log('Inalid user');
 				}else{
-					console.log('user not found');
-				}
+					console.log('Valid user : Welcome '+results[0].username);
 
+				}
 			});
 		});
+	connection.release();
 	});
+
 }
 module.exports.validate=validate;

@@ -21,7 +21,7 @@ app.post('/login',urlencodedParser,(req,res)=>{
 });
 app.get('/',(req,res)=>{
 	res.sendFile('login.html',{root:path.join(__dirname,'./')})
-	console.log('load');
+	console.log('load login');
 	
 
 });
