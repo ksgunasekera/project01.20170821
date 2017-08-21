@@ -18,7 +18,7 @@ const validate=(data)=>{
 					console.log(error);
 				}
 				if(results.length==0){
-					console.log('Inalid user');
+					console.log('Invalid user');
 				}else{
 					console.log('Valid user : Welcome '+results[0].username);
 
@@ -29,4 +29,18 @@ const validate=(data)=>{
 	});
 
 }
-module.exports.validate=validate;
+const check=(data)=>{
+	if(data.username==''){
+		console.log('Enter username');
+
+	}
+	if(data.password==''){
+		console.log('Enter password');
+	}
+	if(data.username!=''&&data.password!=''){
+		validate(data);
+	}
+}
+
+module.exports.check=check;
+
